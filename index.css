@@ -1,0 +1,22 @@
+body{
+    background-color:#666666;
+}
+
+
+.container{
+    background-color:white;
+    width:70%;
+    height:400px;
+    margin: auto;
+    margin-top: 10%;
+    padding:20px;
+    }
+
+   .pageElementMockUp{ 
+        width:70%;
+        height:auto;
+        margin: auto;
+        margin-top: 2%;
+        padding:10px;
+        border: 1px solid black;
+    }

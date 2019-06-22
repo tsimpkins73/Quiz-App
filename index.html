@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Marvel Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <section class="mainSecton landing">
+            <div class="pageElementMockUp">
+                <h1 id="HeaderText">Quiz Landing Page</h1>
+            </div>
+            <div class="pageElementMockUp">
+                <p>Quiz introduction and information of operation. This will act as a window to hide/show the quiz
+                    questions.<p>
+                            <input type="button" name="Start Quiz" value="Start Quiz">
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="mainSecton question">
+            <div class="pageElementMockUp">
+                <h1 id="HeaderText">Quiz Question #1</h1>
+            </div>
+            <div class="pageElementMockUp">
+                <form>Whose catchphrase is 'It's clobberin' time'?<br>
+                    <input type="radio" name="answer" value="Thing" checked> Thing<br>
+                    <input type="radio" name="answer" value="Venom"> Venom<br>
+                    <input type="radio" name="answer" value="Hulk"> Hulk<br>
+                    <input type="radio" name="answer" value="Dr. Strange"> Dr. Strange<br>
+                    <input type="button" name="Submit Answer" value="Submit Answer">
+                    <br>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+    <section class="mainSecton feedback">
+           <div class="pageElementMockUp">
+            <h1 id="HeaderText">Question Feedback</h1>
+        </div>
+        <div class="pageElementMockUp">
+            <form>This Section will include feedback on the user's answer which will change based on an incorrect or corrrect answer<br>
+                <input type="button" name="Next Question" value="Next Question">
+            </section>
+        </div>
+    </div>  
+    <div class="container">
+    <section class="mainSecton results">
+    <div class="pageElementMockUp">
+            <h1 id="HeaderText">Quiz Results</h1>
+        </div>
+        <div class="pageElementMockUp">
+            <form>This Section will include the user's final score and feedback<br>
+                <input type="button" name="Restart Quiz" value="Restart Quiz">
+            </section>
+        </div>
+    </div>  
+
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
