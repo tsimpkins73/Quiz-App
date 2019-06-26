@@ -61,13 +61,13 @@ const STORE = {
 
     score: 0,
     currentQuestion: 0,
-    }
+       }
 
-const score_count_Bar = `<div class="score">Your Score: ${currentScore}</div>
+/* const score_count_Bar = `<div class="score">Your Score: ${currentScore}</div>
 <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>`
-
+ */
 function startQuizButton() {
-    $(".landing").submit(function (event) {
+    $(document).on('click', '.start', function (event) {
         event.preventDefault();
         console.log("startQuizButton is Running");
         $(this).closest('section').toggleClass("landing");
@@ -76,10 +76,21 @@ function startQuizButton() {
       });
 }
 
-function answerButton() {
-    $("#question").submit(function (event) {
+function restartQuizButton() {
+       $(document).on('click', '.restart', function (event) {
         event.preventDefault();
-        const question = STORE.questions[currentQuestion];
+        console.log("restartQuizButton is Running");
+        STORE.currentQuestion = 0;
+        STORE.score = 0;
+                renderQuestion(0);
+      });
+}
+
+function answerButton() {
+    // $("#question").submit(function (event) {
+        $(document).on('submit', 'form.question', function (event) {    
+    event.preventDefault();
+        const question = STORE.questions[STORE.currentQuestion];
         const answer = $("input[name='answer']:checked").val();
         console.log("Question Button is Running");
         if (answer === question.answer) {
@@ -98,20 +109,21 @@ function correctChoice(){
 }
 
 function currentScore(){
-
+return STORE.score/(STORE.currentQuestion+1);
 }
 
 function renderQuestion(i){
     console.log("Render Question is Running");
 var currentQuestion= STORE.questions[i];
-var questionNumber = i + 1;
-var currentScore = STORE.score/STORE.questions.length;
-$(`.question`).html(`${score_count_Bar}
+var questionNumber = STORE.currentQuestion + 1;
+var currentScore = (STORE.score/STORE.questions.length)*100;
+$(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+<div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
 <h1 id="HeaderText">Quiz Question ${questionNumber}</h1>            
 <br>
     <form class="question">${currentQuestion.title}<br>
         <br>
-        <input type="radio" name="answer" value="${currentQuestion.choices[0]}" checked>${currentQuestion.choices[1]}<br>
+        <input type="radio" name="answer" value="${currentQuestion.choices[0]}" checked>${currentQuestion.choices[0]}<br>
         <br>
         <input type="radio" name="answer" value="${currentQuestion.choices[1]}">${currentQuestion.choices[1]}<br>
         <br>
@@ -119,9 +131,9 @@ $(`.question`).html(`${score_count_Bar}
         <br>
         <input type="radio" name="answer" value="${currentQuestion.choices[3]}">${currentQuestion.choices[3]}<br>
         <br>
-        <button type="submit" name="Submit Answer" value="Submit Answer">SUBMIT ANSWER</button>
-        <br>`
-);
+        <button class = "submit" type="submit" name="Submit Answer" value="Submit Answer">SUBMIT ANSWER</button>
+        <br>
+        </form>`);
 }
 
 function correctAnswerScore(){
@@ -129,16 +141,33 @@ function correctAnswerScore(){
 }
 
 function correctAnswerFeedback(){
-    $(`.question`).html(`${score_count_Bar}
+        var questionNumber = STORE.currentQuestion + 1;
+var currentScore = (STORE.score/STORE.questions.length)*100;
+    $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+    <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
     <h1 id="HeaderText">Correct!</h1>            
     <br>
-    <p class="question">Great answer, True Believer! Prepare for the next question!`);
-    <button type="submit" name="Next Question" value="Next Question">NEXT QUESTION</button>
+    <p class="question">Great answer, True Believer! Prepare for the next question!
+    <button class= "nextQuestion" type="submit" name="Next Question" value="Next Question">NEXT QUESTION</button>`);
 }
 
+function incorrectFeedback(){
+    var questionNumber = STORE.currentQuestion + 1;
+var currentScore = (STORE.score/STORE.questions.length)*100;
+$(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+<div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
+<h1 id="HeaderText">Incorrect!</h1>            
+<br>
+<p class="question">Sorry, not this time! Prepare for the next question!
+<button class= "nextQuestion" type="submit" name="Next Question" value="Next Question">NEXT QUESTION</button>`);
+}
+
+
+
 function nextQuestionButton() {
-    $("#question").submit(function (event) {
+    $(document).on('click', 'button.nextQuestion', function (event) {
         event.preventDefault();
+        console.log('Next Question please');
         STORE.currentQuestion++;
     if (STORE.questions.length > STORE.currentQuestion) {
         renderQuestion(STORE.currentQuestion);
@@ -150,7 +179,15 @@ function nextQuestionButton() {
 }
 
 function renderResults(){
-    
+    var questionNumber = STORE.currentQuestion + 1;
+    var currentScore = (STORE.score/STORE.questions.length)*100;
+    $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+    <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
+    <h1 id="HeaderText">You've Finished!</h1>            
+    <br>
+    <p class="question">Your Score is ${currentScore}%
+    <button class= "restart" type="button" id="restartQuizButton" name="Start Quiz" value="Start Quiz">Restart Quiz</button>
+    `);
 }
 
 function renderQuiz() {
@@ -161,7 +198,8 @@ function renderQuiz() {
 function listenEvents() {
     startQuizButton();
     nextQuestionButton();
-
+    answerButton();
+    restartQuizButton();
 }
 
 $(listenEvents);
