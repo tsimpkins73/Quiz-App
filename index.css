@@ -1,13 +1,52 @@
+@media only screen and (max-width:600px){
+    button, h1{
+        font-size: 4vw; 
+    }
+
+    p.questionParagraph {
+        font-size: 12pt; 
+        padding-bottom: 2%;
+    }
+
+    h1#HeaderText{
+        font-size:2em; 
+    }
+
+    .container{
+        width: 100%;
+    }
+
+    form{
+        font-size:4vw;
+        padding: 1%;
+    }
+}
+
 html {
     height: 100%;
-    font-size: calc(1em + 1vw);
-  }
+    /* font-size: calc(1em + 1vw); */
+    }
+
+h1{
+    font-size:4vw;
+}
+
+p{
+    font-size:2vw;
+    padding: 1%;
+    text-align: center;
+}
+
+form{
+    font-size:2vw;
+    padding: 1%;
+}
 
 body{
     background-image: url(https://i.imgur.com/hJJ7Wty.jpg);
     background-size: cover;
-    background-color: rgba(78, 78, 78, 0.7);
-    background-blend-mode: color-burn;
+    background-color: rgba(30, 33, 39, 0.8);
+    background-blend-mode: multiply;
     background-repeat: no-repeat; 
     background-position: center;
     height: 100%;
@@ -27,7 +66,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+      
+}
 
 .score{
     width:40%;
@@ -62,19 +102,20 @@ body{
     }
 
     .question{
-        padding-top: 0;
-        width: 80%;
+        padding: 3%;
+        width: 100%;
+        height: auto;
         margin: auto;
-        align-content: center;
-        
+        align-items: center;
+        justify-content: center;
     }
 
     .landing{
-        padding-top: 0;
+        padding: 3%;
         width: 100%;
-        height: 100%;
+        height: auto;
         margin: auto;
-        align-content: center;
+        align-items: center;
         justify-content: center;
     }
 
@@ -84,18 +125,22 @@ body{
     }
 
     button{
-        position: center;
+        /* position: center; */
         width: 100%;
         height: inherit;
         padding:2%;
         text-align: center;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-       font-size: 2em;
+      
         background-color: red;
         color:white;
-        font-size: inherit; 
+        font-size: 2em; 
     }
    
     input { 
-        font-size: inherit;
+        font-size: 4em;
      }
+
+ 
+
+     
