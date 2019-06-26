@@ -55,7 +55,7 @@ const STORE = {
         {
             title: `Who portrayed Gamora in 2014's Guardians of the Galaxy?`,
             choices: ['Scarlett Johanson', 'Zoe Saldana', 'Robert Downey Jr.', 'Zendaya'],
-            answer: 'Gamma Rays'
+            answer: 'Zoe Saldana'
         },
     ],
 
