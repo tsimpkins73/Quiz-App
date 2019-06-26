@@ -118,7 +118,7 @@ var currentQuestion= STORE.questions[i];
 var questionNumber = STORE.currentQuestion + 1;
 var currentScore = (STORE.score/STORE.questions.length)*100;
 $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
-<div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
+<div class="questionNumber">Question ${questionNumber}</div>
 <h1 id="HeaderText">Quiz Question ${questionNumber}</h1>            
 <br>
     <form class="question">${currentQuestion.title}<br>
@@ -144,7 +144,7 @@ function correctAnswerFeedback(){
         var questionNumber = STORE.currentQuestion + 1;
 var currentScore = (STORE.score/STORE.questions.length)*100;
     $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
-    <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
+    <div class="questionNumber">Question ${questionNumber}</div>
     <h1 id="HeaderText">Correct!</h1>            
     <br>
     <p class="questionParagraph">Great answer, True Believer! Prepare for the next question!</p>
@@ -156,7 +156,7 @@ function incorrectFeedback(){
 var currentScore = (STORE.score/STORE.questions.length)*100;
 var correctAnswer = STORE.questions[STORE.currentQuestion].answer;
 $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
-<div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
+<div class="questionNumber">Question ${questionNumber}</div>
 <h1 id="HeaderText">Incorrect!</h1>            
 <br>
 <p class="questionParagraph">Sorry, not this time! The correct answer is <b>${correctAnswer}!</b> Prepare for the next question!</p>
@@ -183,7 +183,7 @@ function renderResults(){
     var questionNumber = STORE.currentQuestion + 1;
     var currentScore = (STORE.score/STORE.questions.length)*100;
     $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
-    <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
+    <div class="questionNumber">Question ${questionNumber}</div>
     <h1 id="HeaderText">You've Finished!</h1>            
         <p class="questionParagraph"><b>Your Score is ${currentScore}%</b></p>
     <button class= "restart" type="button" id="restartQuizButton" name="Start Quiz" value="Start Quiz">Restart Quiz</button>
