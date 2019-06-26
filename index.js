@@ -2,8 +2,8 @@ const STORE = {
     questions: [
         {
             title: `Whose catchphrase is 'It's clobberin'' time?`,
-            choices: ['Thing', 'Venom', 'Hulk', 'Dr. Strange'],
-            answer: 'Thing'
+            choices: ['The Thing', 'Venom', 'Hulk', 'Dr. Strange'],
+            answer: 'The Thing'
         },
 
         {
@@ -154,11 +154,12 @@ var currentScore = (STORE.score/STORE.questions.length)*100;
 function incorrectFeedback(){
     var questionNumber = STORE.currentQuestion + 1;
 var currentScore = (STORE.score/STORE.questions.length)*100;
+var correctAnswer = STORE.questions[STORE.currentQuestion].answer;
 $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
 <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
 <h1 id="HeaderText">Incorrect!</h1>            
 <br>
-<p class="questionParagraph">Sorry, not this time! Prepare for the next question!</p>
+<p class="questionParagraph">Sorry, not this time! The correct answer is <b>${correctAnswer}!</b> Prepare for the next question!</p>
 <button class= "nextQuestion" type="submit" name="Next Question" value="Next Question">NEXT QUESTION</button>`);
 }
 
@@ -184,7 +185,7 @@ function renderResults(){
     $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
     <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
     <h1 id="HeaderText">You've Finished!</h1>            
-        <p class="questionParagraph">Your Score is ${currentScore}%</p>
+        <p class="questionParagraph"><b>Your Score is ${currentScore}%</b></p>
     <button class= "restart" type="button" id="restartQuizButton" name="Start Quiz" value="Start Quiz">Restart Quiz</button>
     `);
 }
