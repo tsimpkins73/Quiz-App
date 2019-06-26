@@ -117,7 +117,7 @@ function renderQuestion(i){
 var currentQuestion= STORE.questions[i];
 var questionNumber = STORE.currentQuestion + 1;
 var currentScore = (STORE.score/STORE.questions.length)*100;
-$(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+$(`.question`).html(`<div class="score">Score: ${currentScore}%</div>
 <div class="questionNumber">Question ${questionNumber}</div>
 <h1 id="HeaderText">Quiz Question ${questionNumber}</h1>            
 <br>
@@ -143,7 +143,7 @@ function correctAnswerScore(){
 function correctAnswerFeedback(){
         var questionNumber = STORE.currentQuestion + 1;
 var currentScore = (STORE.score/STORE.questions.length)*100;
-    $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+    $(`.question`).html(`<div class="score">Score: ${currentScore}%</div>
     <div class="questionNumber">Question ${questionNumber}</div>
     <h1 id="HeaderText">Correct!</h1>            
     <br>
@@ -155,7 +155,7 @@ function incorrectFeedback(){
     var questionNumber = STORE.currentQuestion + 1;
 var currentScore = (STORE.score/STORE.questions.length)*100;
 var correctAnswer = STORE.questions[STORE.currentQuestion].answer;
-$(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+$(`.question`).html(`<div class="score">Score: ${currentScore}%</div>
 <div class="questionNumber">Question ${questionNumber}</div>
 <h1 id="HeaderText">Incorrect!</h1>            
 <br>
@@ -182,7 +182,7 @@ function nextQuestionButton() {
 function renderResults(){
     var questionNumber = STORE.currentQuestion + 1;
     var currentScore = (STORE.score/STORE.questions.length)*100;
-    $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
+    $(`.question`).html(`<div class="score">Score: ${currentScore}%</div>
     <div class="questionNumber">Question ${questionNumber}</div>
     <h1 id="HeaderText">You've Finished!</h1>            
         <p class="questionParagraph"><b>Your Score is ${currentScore}%</b></p>
