@@ -1,9 +1,9 @@
 @media only screen and (max-width:600px){
     button, h1{
-        font-size: 4vw; 
+        font-size: 4vh; 
     }
 
-    p.questionParagraph {
+    p.questionParagraph, .questionNumber, .score, form.question {
         font-size: 12pt; 
         padding-bottom: 2%;
     }
@@ -16,10 +16,6 @@
         width: 100%;
     }
 
-    form{
-        font-size:4vw;
-        padding: 1%;
-    }
 }
 
 html {
