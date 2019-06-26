@@ -190,11 +190,6 @@ function renderResults(){
     `);
 }
 
-function renderQuiz() {
-    ;
-    $('.' + STORE.view).show();
-}
-
 function listenEvents() {
     startQuizButton();
     nextQuestionButton();
