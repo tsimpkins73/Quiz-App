@@ -123,13 +123,13 @@ $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
 <br>
     <form class="question">${currentQuestion.title}<br>
         <br>
-        <input type="radio" name="answer" value="${currentQuestion.choices[0]}" checked>${currentQuestion.choices[0]}<br>
+        <input class="answer" type="radio" name="answer" value="${currentQuestion.choices[0]}" checked>${currentQuestion.choices[0]}<br>
         <br>
-        <input type="radio" name="answer" value="${currentQuestion.choices[1]}">${currentQuestion.choices[1]}<br>
+        <input class="answer" type="radio" name="answer" value="${currentQuestion.choices[1]}">${currentQuestion.choices[1]}<br>
         <br>
-        <input type="radio" name="answer" value="${currentQuestion.choices[2]}">${currentQuestion.choices[2]}<br>
+        <input class="answer" type="radio" name="answer" value="${currentQuestion.choices[2]}">${currentQuestion.choices[2]}<br>
         <br>
-        <input type="radio" name="answer" value="${currentQuestion.choices[3]}">${currentQuestion.choices[3]}<br>
+        <input class="answer" type="radio" name="answer" value="${currentQuestion.choices[3]}">${currentQuestion.choices[3]}<br>
         <br>
         <button class = "submit" type="submit" name="Submit Answer" value="Submit Answer">SUBMIT ANSWER</button>
         <br>
@@ -147,7 +147,7 @@ var currentScore = (STORE.score/STORE.questions.length)*100;
     <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
     <h1 id="HeaderText">Correct!</h1>            
     <br>
-    <p class="question">Great answer, True Believer! Prepare for the next question!
+    <p class="questionParagraph">Great answer, True Believer! Prepare for the next question!</p>
     <button class= "nextQuestion" type="submit" name="Next Question" value="Next Question">NEXT QUESTION</button>`);
 }
 
@@ -158,7 +158,7 @@ $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
 <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
 <h1 id="HeaderText">Incorrect!</h1>            
 <br>
-<p class="question">Sorry, not this time! Prepare for the next question!
+<p class="questionParagraph">Sorry, not this time! Prepare for the next question!</p>
 <button class= "nextQuestion" type="submit" name="Next Question" value="Next Question">NEXT QUESTION</button>`);
 }
 
@@ -184,8 +184,7 @@ function renderResults(){
     $(`.question`).html(`<div class="score">Your Score: ${currentScore}%</div>
     <div class="questionNumber">Question ${questionNumber} of ${STORE.questions.length}</div>
     <h1 id="HeaderText">You've Finished!</h1>            
-    <br>
-    <p class="question">Your Score is ${currentScore}%
+        <p class="questionParagraph">Your Score is ${currentScore}%</p>
     <button class= "restart" type="button" id="restartQuizButton" name="Start Quiz" value="Start Quiz">Restart Quiz</button>
     `);
 }
